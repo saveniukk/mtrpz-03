@@ -7,11 +7,12 @@ RUN go mod download
 
 COPY . .
 
-RUN go build -o fizzbuzz .
+RUN CGO_ENABLED=0 GOOS=linux go build -o fizzbuzz .
 
 FROM scratch
 
 COPY --from=builder /app/fizzbuzz /fizzbuzz
+COPY --from=builder /app/templates /templates
 
 EXPOSE 8080
 
