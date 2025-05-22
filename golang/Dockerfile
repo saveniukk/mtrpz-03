@@ -1,4 +1,4 @@
-FROM golang:1.24
+FROM golang:1.24 AS builder
 
 WORKDIR /app
 
@@ -9,6 +9,10 @@ COPY . .
 
 RUN go build -o fizzbuzz .
 
+FROM scratch
+
+COPY --from=builder /app/fizzbuzz /fizzbuzz
+
 EXPOSE 8080
 
-CMD ["./fizzbuzz", "serve", "--port", "8080"]
+CMD ["/fizzbuzz", "serve", "--port", "8080"]
