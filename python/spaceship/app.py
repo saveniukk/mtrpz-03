@@ -7,6 +7,7 @@ from spaceship.routers import api, health
 
 # App factory: створює FastAPI-додаток з налаштуваннями
 def make_app(settings: Settings) -> FastAPI:
+    # Ініціалізація FastAPI-додатку з метаданими з конфігурації
     app = FastAPI(
         debug=settings.debug,
         title=settings.app_title,
