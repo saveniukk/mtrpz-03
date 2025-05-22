@@ -7,6 +7,8 @@ RUN go mod download
 
 COPY . .
 
-RUN go build -o /golang ./cmd/
+RUN go build -o fizzbuzz .
 
-CMD ["/golang"]
+EXPOSE 8080
+
+CMD ["./fizzbuzz", "serve", "--port", "8080"]
