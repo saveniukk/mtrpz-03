@@ -9,7 +9,7 @@ COPY . .
 
 RUN CGO_ENABLED=0 GOOS=linux go build -o fizzbuzz .
 
-FROM scratch
+FROM gcr.io/distroless/static-debian12
 
 COPY --from=builder /app/fizzbuzz /fizzbuzz
 COPY --from=builder /app/templates /templates
