@@ -65,6 +65,13 @@
   transform: translateY(-2px);
 }
 
+.item-content {
+  flex: 1;
+  margin: 0 15px; 
+  overflow: hidden; 
+  text-overflow: ellipsis;
+}
+
 .checkbox {
   margin-right: 15px;
   width: 18px;
@@ -73,18 +80,21 @@
 }
 
 .deleteButton {
-  padding: 6px 10px;
+  padding: 4px 8px;
   background-color: transparent;
   color: #e74c3c;
-  margin-left: 10px;
-  font-size: 1.2rem;
+  margin-left: auto;
+  font-size: 1rem;
+  border: none;
+  flex-shrink: 0;
 }
 
 .deleteButton:hover {
-  background-color: rgba(231, 76, 60, 0.1);
+  background-color: rgba(7, 44, 253, 0.1);
+  border-radius: 15px;
 }
 
-.completed {
+.completed .item-content {
   color: #888;
   text-decoration: line-through;
 }

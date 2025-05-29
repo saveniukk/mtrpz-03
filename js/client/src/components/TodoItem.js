@@ -9,7 +9,11 @@ function TodoItem({ todo, toggleTodo, deleteTodo }) {
         checked={todo.completed}
         onChange={() => toggleTodo(todo._id, todo.completed)}
       />
-      <span>{todo.title}</span>
+      
+      <div className="item-content">
+        {todo.title}
+      </div>
+      
       <button
         onClick={() => deleteTodo(todo._id)}
         className="deleteButton"
